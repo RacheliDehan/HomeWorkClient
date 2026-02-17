@@ -1,0 +1,18 @@
+
+<div class="container">
+  <h1>Users List</h1>
+
+  <div class="add-user">
+    <input type="text" placeholder="Name" [(ngModel)]="name">
+    <input type="email" placeholder="Email" [(ngModel)]="email">
+    <button (click)="addUser()">Add User</button>
+  </div>
+
+  <div class="users-grid">
+    <div class="user-card" *ngFor="let u of usersList">
+      <p><strong>ID:</strong> {{u.id}}</p>
+      <p><strong>Name:</strong> {{u.name}}</p>
+      <p><strong>Email:</strong> {{u.email}}</p>
+    </div>
+  </div>
+</div>
