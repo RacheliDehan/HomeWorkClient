@@ -1,61 +1,61 @@
 <div class="page-wrapper">
 
-    <!-- HERO -->
-    <section class="hero">
-        <div class="overlay">
-            <div class="hero-content">
-                <h1>הגשת שיעורי בית</h1>
-                <p>
-                    מערכת חכמה, פשוטה ונעימה להגשת עבודות בצורה מסודרת וברורה.
-                </p>
-            </div>
-        </div>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="overlay">
+      <div class="hero-content">
+        <h1>הגשת שיעורי בית</h1>
+        <p>
+          מערכת חכמה, פשוטה ונעימה להגשת עבודות בצורה מסודרת וברורה.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- תוכן -->
+  <div class="content-wrapper">
+
+    <!-- הסבר -->
+    <section class="card">
+      <p>
+        האתר נבנה מתוך צורך אמיתי שעלה מהשטח – ליצור דרך ברורה ופשוטה להגשת שיעורי בית, שתהיה הרבה יותר קלה ונוחה.
+      </p>
+      <p>
+        הכל מרוכז במקום אחד, בצורה מסודרת ונעימה לעין, כדי לאפשר חוויית שימוש קלה ונוחה. מקוה שתהנו ויהיה לכן לתועלת .
+      </p>
+
     </section>
 
-    <!-- תוכן -->
-    <div class="content-wrapper">
+    <!-- הנחיות -->
+    <section class="card">
+      <h3>הנחיות להגשה</h3>
+      <ul>
+        <li>יש לשלוח את שיעורי הבית יום לפני השיעור.</li>
+        <li>יש לציין שם פרטי + שם משפחה.</li>
+        <li>יש לוודא שהקובץ ברור וקריא.</li>
+        <li>ניתן לצרף הודעה למורה.</li>
+      </ul>
+    </section>
 
-        <!-- הסבר -->
-        <section class="card">
-            <p>
-                האתר נבנה מתוך צורך אמיתי שעלה מהשטח – ליצור דרך ברורה ופשוטה להגשת שיעורי בית ללא עומס וללא בלבול.
-            </p>
-            <p>
-                הכל מרוכז במקום אחד, בצורה מסודרת ונעימה לעין, כדי לאפשר חוויית שימוש קלה ונוחה.
-            </p>
-        </section>
+    <!-- טופס -->
+    <section class="card">
+      <form [formGroup]="homeworkForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
 
-        <!-- הנחיות -->
-        <section class="card">
-            <h3>הנחיות להגשה</h3>
-            <ul>
-                <li>יש לשלוח את שיעורי הבית יום לפני השיעור.</li>
-                <li>יש לציין שם פרטי + שם משפחה.</li>
-                <li>יש לוודא שהקובץ ברור וקריא.</li>
-                <li>ניתן לצרף הודעה למורה.</li>
-            </ul>
-        </section>
+        <div class="form-grid">
+          <input type="text" formControlName="FirstName" placeholder="שם פרטי + משפחה" />
+          <input type="text" formControlName="Seminar" placeholder="שם הסמינר" />
+          <input type="text" formControlName="ClassName" placeholder="כיתה" />
+          <input type="text" formControlName="Subject" placeholder="מקצוע" />
+          <input type="number" formControlName="LessonNumber" placeholder="מספר שיעור" />
+        </div>
 
-        <!-- טופס -->
-        <section class="card">
-            <form [formGroup]="homeworkForm" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
-
-                <div class="form-grid">
-                    <input type="text" formControlName="FirstName" placeholder="שם פרטי + משפחה" />
-                    <input type="text" formControlName="Seminar" placeholder="שם הסמינר" />
-                    <input type="text" formControlName="ClassName" placeholder="כיתה" />
-                    <input type="text" formControlName="Subject" placeholder="מקצוע" />
-                    <input type="number" formControlName="LessonNumber" placeholder="מספר שיעור" />
-                </div>
-
-                <textarea formControlName="Message" placeholder="הודעה למורה (לא חובה)"></textarea>
+        <textarea formControlName="Message" placeholder="הודעה למורה (לא חובה)"></textarea>
 
 
-               <label class="file-upload">
+        <label class="file-upload">
                 העלאת קובץ
-               <!--   <input type="file" (change)="onFileSelected($event)" hidden />
-               -->
-                <span class="file-upload" class="file-name">{{ selectedFile }}</span>
+
+                <span class="file-upload" class="file-name">{{ selectedFileName }}</span>
                 <input type="file" (change)="onFileSelected($event)" hidden/>
     </label>
 
@@ -63,18 +63,18 @@
           שלח עכשיו 🚀
         </button>
 
-            </form>
+      </form>
 
-            <p *ngIf="successMessage" class="success">
-                {{ successMessage }}
-            </p>
-        </section>
+      <p *ngIf="successMessage" class="success">
+        {{ successMessage }}
+      </p>
+    </section>
 
-    </div>
+  </div>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        © 2026 כל הזכויות שמורות | מערכת הגשת שיעורי בית
-    </footer>
+  <!-- FOOTER -->
+  <footer class="footer">
+    © כל הזכויות שמורות | מערכת הגשת שיעורי בית | רחלי כהן 0527648175
+  </footer>
 
 </div>

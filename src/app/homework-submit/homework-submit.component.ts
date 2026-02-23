@@ -6,7 +6,7 @@ import { HomeworkService } from '../services/homework.service';
 
 @Component({
   selector: 'app-homework-submit',
-  standalone: true, // <--- זה מה שמסמן שהקומפוננטה Standalone
+  standalone: true,
   imports: [CommonModule, ReactiveFormsModule, HttpClientModule],
   templateUrl: './homework-submit.component.html',
   styleUrls: ['./homework-submit.component.css']
@@ -16,6 +16,7 @@ export class HomeworkSubmitComponent {
   homeworkForm: FormGroup;
   selectedFile: File | null = null;
   successMessage = '';
+  selectedFileName: string="";
 
   constructor(
     private fb: FormBuilder,
@@ -33,7 +34,9 @@ export class HomeworkSubmitComponent {
   }
 
   onFileSelected(event: any) {
-    this.selectedFile = event.target.files[0].name;
+    this.selectedFile = event.target.files[0];
+      this.selectedFileName= event.target.files[0].name;
+
   }
 
 
